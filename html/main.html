@@ -34,9 +34,31 @@
       var len = visitorMessage.length;
 
       visitorMessage[len] = new Visitor(uName, uCheck1, uCheck2, uCheck3, uCheck4, uCheck5);
-      
+      message_alert();
       clear();
       print();
+    }
+
+    function message_alert(){
+      let num = 0;
+      let text = "";
+      if(document.getElementById("check1").checked){
+        num++;
+      }
+      if(document.getElementById("check2").checked){
+        num++;
+      }
+      if(document.getElementById("check3").checked){
+        num++;
+      }
+      if(document.getElementById("check4").checked){
+        num++;
+      }
+      if(document.getElementById("check5").checked){
+        num++;
+      }
+      text+=document.getElementById("visitor_name").value+"님, 저와 "+num+"개의 취향이 같으시네요!";
+      alert(text);
     }
     
     function print()
