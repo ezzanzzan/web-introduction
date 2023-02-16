@@ -6,27 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tori's Page</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
   </head>
+  <script type="text/javascript">
+    var visitorMessage = new Array();
+ 
+    function Visitor(uName, Check1, Check2, Check3, Check4, Check5)
+    {
+      this.uName=uName;
+      this.Check1 = Check1;
+      this.Check2 = Check2;
+      this.Check3 = Check3;
+      this.Check4 = Check4;
+      this.Check5 = Check5;
+    }
+
+ 
+    function main()
+    {
+      var uName = document.getElementById("visitor_name").value;
+      var uCheck1 = document.getElementById("check1").checked;
+      var uCheck2 = document.getElementById("check2").checked;
+      var uCheck3 = document.getElementById("check3").checked;
+      var uCheck4 = document.getElementById("check4").checked;
+      var uCheck5 = document.getElementById("check5").checked;
+
+      var len = visitorMessage.length;
+
+      visitorMessage[len] = new Visitor(uName, uCheck1, uCheck2, uCheck3, uCheck4, uCheck5);
+      
+      clear();
+      print();
+    }
+    
+    function print()
+    {
+      let len = visitorMessage.length;
+      let text = "<ul>";
+
+      for (let i = 0; i < len; i++) {
+        text += "<li>" + visitorMessage[i].uName+"<ol>";
+        if(visitorMessage[i].Check1){
+          text+= "<li>어벤져스:엔드게임</li>"
+        }
+        if(visitorMessage[i].Check2){
+          text+= "<li>이터널 션사인</li>"
+        }
+        if(visitorMessage[i].Check3){
+          text+= "<li>인터스텔라</li>"
+        }
+        if(visitorMessage[i].Check4){
+          text+= "<li>인셉션</li>"
+        }
+        if(visitorMessage[i].Check5){
+          text+= "<li>센과 치히로의 행방불명</li>"
+        }
+        text+="</ol></li>";
+      }
+      text += "</ul>";
+
+      document.getElementById("test").innerHTML = text;
+    }
+
+    function clear(){
+      document.getElementById("visitor_name").value = "";
+      document.getElementById("check1").checked = false;
+      document.getElementById("check2").checked = false;
+      document.getElementById("check3").checked = false;
+      document.getElementById("check4").checked = false;
+      document.getElementById("check5").checked = false;
+    }
+ </script>
   <body>
+    <div id="page_title"><h1>토리페이지</h1></div>
+
     <div id="introduce">
-      <h1>자기소개</h1>
-      <p>이름 : 토리 🐹</p>
-      <p>
+      <h2>자기소개</h2>
+      <div><img src="../images/profile.jpg" alt="햄토리" /></div>
+      <p id="name">이름 : 토리 🐹</p>
+      <p id="intro">
         안녕하세요 ! 우아한 테크코스 5기 백엔드 크루 토리 입니다 :)
         <br />
-        제 취미는 원래 이쁜 카페 구경하기, 게임이었는데 요즘에는 침대에 누워서
-        숨쉬기 운동하기로 바뀌었어요 🥲 <br />
-        제 생일은 🎄크리스마스🎄여서 우테코가 끝나고 난 뒤가 되겠네요.
-        끝나더라도 잊지 말고 축하해주세요. <br />
-        처음엔 낯을 가리지만,, 금방 친해지는 편이니 처음에 어색해하더라도
-        낯가리는중이구나~,, 라고 생각해주시면 감사하겠습니다. <br />
-        빨리 다 친해지고 싶어요 저희 10개월동안 열심히 해봐요 같이 ! 🫶
+        저는 게임하는 걸 좋아하구요 처음엔 낯을 가리지만.. 금방 친해지는 편이니
+        처음에 어색해하더라도 낯가리는중이구나~ 라고 생각해주시면 감사하겠습니다
+        🙏🏻 <br />
+        빨리 다들 친해졌으면 좋겠어요 🧡 <br />
+        저희 10개월동안 열심히 해봐요 같이 ! 🫶
       </p>
     </div>
     <div id="movie">
-      <h1>인생영화 BEST5</h1>
-      <div>
-        <table id="movie_table">
+      <h2>인생영화 BEST5</h2>
+      <div class="table-responsive">
+        <table id="movie_table" class="table table-striped align-middle">
           <th>순위</th>
           <th>제목</th>
           <th>포스터</th>
@@ -61,10 +132,10 @@
             </td>
             <td>
               사랑은 그렇게 다시 기억된다..<br />
-              조엘은 아픈 기억만을 지워준다는 라쿠나사를 찾아가 헤어진 연인
-              클레멘타인의 기억을 지우기로 결심한다. 기억이 사라져 갈수록 조엘은
-              사랑이 시작되던 순간, 행복한 기억들, 가슴 속에 각인된 추억들을
-              지우기 싫어지기만 하는데... 당신을 지우면 이 아픔도 사라질까요?
+              조엘은 아픈 기억만을 지워준다는 라쿠나사를 찾아가 <br>헤어진 연인
+              클레멘타인의 기억을 지우기로 결심한다. <br>기억이 사라져 갈수록 조엘은
+              사랑이 시작되던 순간, 행복한 기억들, <br>가슴 속에 각인된 추억들을
+              지우기 싫어지기만 하는데... <br>당신을 지우면 이 아픔도 사라질까요?
               사랑은 그렇게 다시 기억된다.
             </td>
             <td>
@@ -152,23 +223,88 @@
       </div>
     </div>
     <div id="visitor">
-      <h1>방명록</h1>
-      <div>
-        <span>이름 : </span>
-        <input type="text" />
-      </div>
-      <div>
-        <p>본인 취향 영화</p>
-        <input type="checkbox" class="favorite" />어벤져스:엔드게임
-        <input type="checkbox" class="favorite" />이터널 션사인
-        <input type="checkbox" class="favorite" />인터스텔라
-        <input type="checkbox" class="favorite" />인셉션
-        <input type="checkbox" class="favorite" />센과 치히로의 행방불명
-      </div>
+      <h2>방명록</h2>
+      <form action="">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">이름</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="visitor_name"
+            aria-describedby="basic-addon3"
+          />
+        </div>
+        <div>
+          <p>당신의 취향을 알려주세요 !</p>
+          <div class="">
+            <div class="form-check">
+              <input
+                class="form-check-input favorite"
+                type="checkbox"
+                value="어벤져스:엔드게임"
+                id="check1"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                어벤져스:엔드게임
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input favorite"
+                type="checkbox"
+                value="이터널 션사인"
+                id="check2"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                이너널 션사인
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input favorite"
+                type="checkbox"
+                value="인터스텔라"
+                id="check3"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                인터스텔라
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input favorite"
+                type="checkbox"
+                value="인셉션"
+                id="check4"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                인셉션
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input favorite"
+                type="checkbox"
+                value="센과 치히로의 행방불명"
+                id="check5"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                센과 치히로의 행방불명
+              </label>
+            </div>
+           </div>
+           <div id="visitor_button">
+            <button class="btn btn-outline-primary btn-block" type="button" onclick="main()">
+              등록
+            </button>
+            <button class="btn btn-outline-dark btn-block" type="reset">취소</button>
+          </div>
+      </form>
     </div>
-    <div>
-      <button type="submit">등록</button>
-      <button type="reset">취소</button>
+    <div id="visitor_message">
+      <p id="test"></p>
     </div>
   </body>
 </html>

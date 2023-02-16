@@ -1,3 +1,39 @@
-h1 {
+body {
+  padding: 50px;
+}
+
+h2 {
   font-size: 20px;
+}
+
+#introduce {
+  margin-bottom: 50px;
+}
+
+#introduce img {
+  height: 200px;
+}
+
+#introduce p {
+  font-size: 15px;
+}
+
+#movie_table {
+  text-align: center;
+}
+
+#visitor {
+  width: 500px;
+}
+
+#visitor_button {
+  margin-top: 20px;
+}
+
+#visitor_message {
+  margin-top: 30px;
+}
+
+#visitor_message p {
+  margin-top: 20px;
 }
