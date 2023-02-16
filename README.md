@@ -18,7 +18,7 @@
     - [x] input 태그의 "text" 타입으로 이름
     - [x] 체크박스로 영화 선택할 수 있도록 구성
     - [x] button 태그의 "button" 타입으로 등록 버튼
-    - [v] button 태그의 "reset" 타입으로 취소 버튼
+    - [x] button 태그의 "reset" 타입으로 취소 버튼
 
 - images
   - [x] 'images' 폴더에 저장
